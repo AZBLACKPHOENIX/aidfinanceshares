@@ -8,6 +8,21 @@
     z-index: 99999;
 }
 
+@keyframes progress-animation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--progress-width);
+    }
+}
+
+.progress-bar {
+    animation: progress-animation 10s ease forwards, progress-animation 20s ease  alternate;
+    --progress-width: 0%; /* Fallback */
+}
+
+
 /* Remove any overlay or background on carousel captions */
 .carousel-caption {
     background: none !important;
