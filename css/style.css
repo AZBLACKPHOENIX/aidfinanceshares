@@ -73,6 +73,26 @@
     color: rgb(148, 3, 102) !important;
 }
 
+/* Default styling for the accordion button */
+.accordion-button {
+    background-color: #ffffff; /* Initial background color */
+    color: rgb(33, 32, 32); /* Text color */
+    border: 1px solid transparent; /* Default border */
+}
+
+/* Styling for the accordion button when expanded */
+.accordion-button:not(.collapsed) {
+    background-color: pink; /* Background color when expanded */
+    color: black; /* Text color when expanded */
+    border: 1px solid purple; /* Purple border when expanded */
+}
+
+/* Styling for the accordion item */
+.accordion-item {
+    margin-bottom: 10px; /* Spacing between items */
+}
+
+
 #spinner.show {
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
