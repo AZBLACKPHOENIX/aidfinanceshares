@@ -134,36 +134,3 @@
 
 })(jQuery);
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const progressBars = document.querySelectorAll('.progress-bar');
-
-    // Options for the observer (which mutations to observe)
-    const options = {
-        root: null, // use the viewport
-        rootMargin: '0px',
-        threshold: 0.1 // trigger when 10% of the bar is visible
-    };
-
-    // Callback function to execute when the target is observed
-    const callback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Start animation
-                const bar = entry.target;
-                const width = bar.getAttribute('style').match(/(\d+)%/)[0];
-                bar.style.setProperty('--progress-width', width);
-                bar.classList.add('animate'); // Add class to trigger animation
-            }
-        });
-    };
-
-    // Create an observer instance linked to the callback function
-    const observer = new IntersectionObserver(callback, options);
-
-    // Observe each progress bar
-    progressBars.forEach(bar => {
-        observer.observe(bar);
-    });
-});
