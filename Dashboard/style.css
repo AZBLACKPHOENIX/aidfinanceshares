@@ -1,0 +1,7 @@
+.profile-image {
+    width: 35px; /* Set this to the desired width */
+    height: 100px; /* This should match the width to maintain the square */
+    object-fit: cover; /* Ensures the image covers the square */
+    object-position: bottom; /* Cuts from the bottom */
+    border-radius: 50%; /* Optional: to maintain the rounded appearance */
+}
