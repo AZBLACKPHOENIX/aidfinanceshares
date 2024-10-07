@@ -91,6 +91,25 @@
 .accordion-item {
     margin-bottom: 10px; /* Spacing between items */
 }
+/* Ensure the links have no background by default */
+.sidebar-nav .nav-link {
+    background-color: transparent; /* No background color */
+    color: white; /* White font color */
+}
+
+/* Style the icons to have a white color */
+.sidebar-nav .nav-link i {
+    color: white; /* Set icon color to white */
+}
+
+
+
+
+.sidebar-nav .nav-link:hover, 
+.sidebar-nav .nav-link.active {
+    background-color: white; /* White background color on hover or active */
+    color: black; /* Black font color for contrast */
+}
 
 
 #spinner.show {

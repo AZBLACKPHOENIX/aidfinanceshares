@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            padding: 20px;
+            color: white;
+            width: 250px;
+            transition: width 0.3s ease; /* Smooth transition for width */
+        }
+
+        /* Sidebar collapsed state: only icons are visible */
+        .sidebar.collapsed {
+            width: 70px; /* Collapse width to only show icons */
+        }
+
+        .sidebar .nav-link {
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link i {
+            margin-right: 20px;
+        }
+
+        /* Hide text when sidebar is collapsed */
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .sidebar .nav-item {
+            margin-bottom: 15px;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-bottom: 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-info h5 {
+            margin: 0;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        /* Hide profile info when sidebar is collapsed */
+        .sidebar.collapsed .profile-info {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .burger-icon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            padding-top: 10%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar"> <!-- Added ID here -->
+        <div class="profile-info">
+            <img src="img/17580.jpg" alt="Profile Picture"> <!-- Replace with actual image URL -->
+            <h5>PHOENIX</h5>
+            <p>unlimitednigami@gmail.com</p>
+        </div>
+
+        <nav class="nav flex-column">
+            <a class="nav-link" href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a class="nav-link" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a class="nav-link" href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+            <a class="nav-link" href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Dashboard</h1>
+        <p>This is the landing page for the user dashboard. You can navigate using the sidebar.</p>
+
+        <div class="info-box">
+            <h5>User Information</h5>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-share-alt fa-2x"></i>
+                    <p><strong>Total Owned Shares:</strong> 150</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-dollar-sign fa-2x"></i>
+                    <p><strong>Total Amount Paid:</strong> $3,000</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <p><strong>Total Returns:</strong> $500</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <h5>Sales Performance</h5>
+            <canvas id="salesChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <!-- Burger Menu Icon -->
+    <div class="burger-icon" id="burgerIcon">
+        <i class="fas fa-bars fa-2x"></i>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'line', // You can also use 'bar', 'pie', etc.
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Sales Performance',
+                    data: [1200, 1900, 3000, 2500, 4000, 3500, 5000], // Sample sales data
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const sidebar = document.getElementById('sidebar');
+        const burgerIcon = document.getElementById('burgerIcon');
+
+        burgerIcon.addEventListener('click', function () {
+            // Toggle collapsed class for the sidebar
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+
+</html>
