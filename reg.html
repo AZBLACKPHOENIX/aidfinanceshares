@@ -28,6 +28,55 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <style>
+    body {
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .form-container {
+        max-width: 500px; /* Maximum width for the form */
+        margin: 50px auto; /* Center the form container */
+        padding: 30px; /* Padding inside the form */
+        background-color: #fff; /* White background for the form */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px; /* Space below the title */
+        text-align: center; /* Center the title */
+        font-size: 24px; /* Increase title size */
+    }
+
+    .form-group {
+        margin-bottom: 15px; /* Space between form elements */
+    }
+
+    .form-control {
+        border: 1px solid #ced4da; /* Default border color */
+        border-radius: 5px; /* Rounded input corners */
+        transition: border-color 0.3s; /* Smooth transition for border */
+    }
+
+    .form-control:focus {
+        border-color: #007bff; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add glow effect on focus */
+    }
+
+    .btn-custom {
+        width: 100%; /* Full width button */
+        padding: 10px; /* Increased padding for button */
+        font-size: 16px; /* Larger button text */
+        border-radius: 5px; /* Rounded button corners */
+    }
+
+    .toggle-link {
+        text-align: center; /* Center the toggle link */
+        margin-top: 10px; /* Space above the toggle link */
+    }
+</style>
+
     </head>
 
     <body>
@@ -64,7 +113,7 @@
                 
                         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                     </div>
-                    <a href="reg.html" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Reister Now</a></div>
+                    <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Log In</a></div>
             </nav>
 
    
@@ -76,92 +125,67 @@
 <div class="container-fluid" style="padding-top: 7.2%;">
         <!-- Gradient Background for "About Us" Title -->
         <div style="background: linear-gradient(to left, rgb(187, 39, 155), rgb(113, 11, 81), rgb(174, 21, 163)); padding: 30px;width: 100%;">
-            <h3 class="text-white">Our Features</h3>
+            <h3 class="text-white">Register</h3>
         </div>
         <!-- End of Gradient Section -->
 </div>
 
-<section id="features" class="py-5">
-    <div class="container">
-        <div class="text-center mb-4">
-            <h2 class="text-uppercase">Our Features</h2>
-            <p>Why You Should Invest in Aid Finance</p>
+<section id="features" class="py-lg-0" style="margin-top: -3%;">
+ <!-- Login Form -->
+<div class="form-container" id="loginForm">
+    <div class="form-container" id="registerForm">
+        <h2>Create Account</h2>
+        <form>
+            <div class="form-group">
+                <label for="registerName">Full Name</label>
+                <input type="text" class="form-control" id="registerName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email address</label>
+                <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <label for="registerConfirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-custom">Register</button>
+            <div class="toggle-link">
+                <p>Already have an account? <a href="login.html" onclick="toggleForms()">Log In here</a></p>
+            </div>
+        </form>
+</div>
+
+<!-- Registration Form -->
+<div class="form-container" id="registerForm" style="display: none;">
+    <h2>Create Account</h2>
+    <form>
+        <div class="form-group">
+            <label for="registerName">Full Name</label>
+            <input type="text" class="form-control" id="registerName" placeholder="Enter your full name" required>
         </div>
-        <div class="row">
-            <!-- Feature 1: Growth Potential -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Growth Potential</h4>
-                        <p>With our clear expansion roadmap and a proven track record, Aid Finance is set to grow rapidly across Africa by 2030.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 2: Leadership and Vision -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Strong Leadership</h4>
-                        <p>Our experienced team provides a solid foundation for long-term success, backed by a clear vision for the future.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 3: Innovation -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Innovative Solutions</h4>
-                        <p>Leveraging FinTech, Aid Finance delivers cutting-edge, people-centric financial products designed to meet evolving customer needs.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 4: Financial Strength -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Financial Strength</h4>
-                        <p>With a robust capital base, Aid Finance offers investors stability and the potential for attractive returns on investment.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 5: Community Impact -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Community Impact</h4>
-                        <p>By investing in Aid Finance, you're not just supporting a company but contributing to the empowerment of local communities.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 6: Exclusive Opportunities -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Exclusive Opportunities</h4>
-                        <p>As an early investor, you have the chance to be part of our transformative journey, securing potential gains and dividends.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 7: Risk Management -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Risk Management</h4>
-                        <p>Aid Finance employs advanced risk management strategies to protect investments and ensure sustainable growth.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 8: Customer Focus -->
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h4>Customer Focus</h4>
-                        <p>We prioritize our clients’ needs, providing exceptional service and tailored financial solutions that drive satisfaction.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-custom">Register</button>
+        <div class="toggle-link">
+            <p>Already have an account? <a href="#" onclick="toggleForms()">Log In here</a></p>
+        </div>
+    </form>
+</div>
+
 </section>
 
      
