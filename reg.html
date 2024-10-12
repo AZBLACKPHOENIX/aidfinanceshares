@@ -251,22 +251,22 @@ button:hover {
                         <div class="container">
                             
                             <div class="wrapper">
-                                <form action="#">
+                                <form action="register.php" method="POST">
                                     <h2>Register</h2>
                                     <div class="input-field">
-                                        <input type="text" required>
+                                        <input type="text" name="fullname" required>
                                         <label>Full Name</label>
                                     </div>
                                     <div class="input-field">
-                                        <input type="email" required>
+                                        <input type="email" name="email" required>
                                         <label>Email</label>
                                     </div>
                                     <div class="input-field">
-                                        <input type="password" required>
+                                        <input type="password" name="password" required>
                                         <label>Create Password</label>
                                     </div>
                                     <div class="input-field">
-                                        <input type="password" required>
+                                        <input type="password" name="confirm_password" required>
                                         <label>Confirm Password</label>
                                     </div>
                                     <button type="submit">Register</button>
@@ -274,6 +274,7 @@ button:hover {
                                         <p>Already have an account? <a href="login.html">Log In</a></p>
                                     </div>
                                 </form>
+                                
                               </div>
                             
                         </div>
